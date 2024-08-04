@@ -2,7 +2,7 @@ package com.project.microservices.currency_conversion_service.Beans;
 
 import java.math.BigDecimal;
 
-public class currencyConversion {
+public class CurrencyConversion {
 
     private Long id;
     private String from;
@@ -12,7 +12,7 @@ public class currencyConversion {
     private BigDecimal totalCalculatedAmount;
     private String environment;
 
-    public currencyConversion(Long id, String from, String to , BigDecimal quantity, BigDecimal conversionMultiple, BigDecimal totalCalculatedAmount, String environment) {
+    public CurrencyConversion(Long id, String from, String to , BigDecimal quantity, BigDecimal conversionMultiple, BigDecimal totalCalculatedAmount, String environment) {
         this.id = id;
         this.from = from;
         this.to = to;
@@ -23,7 +23,7 @@ public class currencyConversion {
     }
 
 
-    public currencyConversion() {
+    public CurrencyConversion() {
     }
 
     public Long getId() {
