@@ -1,0 +1,58 @@
+openapi: "3.1.0"
+info:
+  title: "currency_conversion_service API"
+  description: "currency_conversion_service API"
+  version: "1.0.0"
+servers:
+  - url: "https://currency_conversion_service"
+paths:
+  /currency-conversion/from/{from}/to/{to}/quantity/{quantity}:
+    get:
+      summary: "GET currency-conversion/from/{from}/to/{to}/quantity/{quantity}"
+      operationId: "calculateCurrencyConversion"
+      parameters:
+        - name: "from"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+        - name: "to"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+        - name: "quantity"
+          in: "path"
+          required: true
+          schema:
+            $ref: "#/components/schemas/BigDecimal"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/CurrencyConversion"
+components:
+  schemas:
+    BigDecimal:
+      type: "object"
+      properties: { }
+    CurrencyConversion:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        from:
+          type: "string"
+        to:
+          type: "string"
+        quantity:
+          $ref: "#/components/schemas/BigDecimal"
+        conversionMultiple:
+          $ref: "#/components/schemas/BigDecimal"
+        totalCalculatedAmount:
+          $ref: "#/components/schemas/BigDecimal"
+        environment:
+          type: "string"
